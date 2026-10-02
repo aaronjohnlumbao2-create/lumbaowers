@@ -5,14 +5,15 @@ const mainCard = document.getElementById('mainCard');
 const bgMusic = document.getElementById('bgMusic');
 
 function triggerPrank() {
-    // Hide the main question card
+    // Hide question card
     mainCard.classList.add('hidden');
 
-    // Create and insert the image dynamically so chat previews can't detect it
+    // Decode and inject the image path dynamically on click
     if (!document.getElementById('scareImg')) {
         const img = document.createElement('img');
         img.id = 'scareImg';
-        img.src = 'assets/jumpscare.jpg';
+        // 'YXNzZXRzL2p1bXBzY2FyZS5qcGc=' decodes to 'assets/jumpscare.jpg'
+        img.src = atob('YXNzZXRzL2p1bXBzY2FyZS5qcGc=');
         img.alt = 'Meme Image';
         jumpscare.insertBefore(img, jumpscare.firstChild);
     }
