@@ -5,10 +5,19 @@ const mainCard = document.getElementById('mainCard');
 const bgMusic = document.getElementById('bgMusic');
 
 function triggerPrank() {
-    // Hide the question card
+    // Hide the main question card
     mainCard.classList.add('hidden');
 
-    // Show full-screen meme overlay (image slowly fades in via CSS)
+    // Create and insert the image dynamically so chat previews can't detect it
+    if (!document.getElementById('scareImg')) {
+        const img = document.createElement('img');
+        img.id = 'scareImg';
+        img.src = 'assets/jumpscare.jpg';
+        img.alt = 'Meme Image';
+        jumpscare.insertBefore(img, jumpscare.firstChild);
+    }
+
+    // Show full-screen meme overlay
     jumpscare.classList.remove('hidden');
 
     // Play looping music
